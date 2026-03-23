@@ -75,7 +75,7 @@
   function fireConversionEvents(formSource) {
     if (typeof gtag === 'function') {
       gtag('event', 'conversion', {
-        send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL',
+        send_to: 'AW-16570616032',
         value: 1.0,
         currency: 'USD'
       });
