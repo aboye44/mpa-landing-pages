@@ -92,6 +92,25 @@
     }
   }
 
+  // --- Track "Plan My Campaign Free" clicks ---
+  function initToolClickTracking() {
+    document.querySelectorAll('a[href*="eddm.mailpro.org"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            send_to: 'AW-16570616032',
+            value: 0.50,
+            currency: 'USD'
+          });
+          gtag('event', 'route_planner_click', {
+            event_category: 'engagement',
+            event_label: 'Plan My Campaign Free'
+          });
+        }
+      });
+    });
+  }
+
   // --- Smooth Scroll ---
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
@@ -316,6 +335,7 @@
   // --- Initialize ---
   function init() {
     captureParams();
+    initToolClickTracking();
     initSmoothScroll();
     initHeaderScroll();
     initMobileStickyCTA();
